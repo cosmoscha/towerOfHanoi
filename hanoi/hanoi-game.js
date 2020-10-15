@@ -1,11 +1,25 @@
 class HanoiGame {
-  constructor() {}
+  constructor(towers = [[3, 2, 1], [], []]) {
+    this.towers = towers
+  }
 
-  isValidMove(startTowerIdx, endTowerIdx) {}
+  isValidMove(startTowerIdx, endTowerIdx) {
+    let startTower = this.towers[startTowerIdx]
+    let endTower = this.towers[endTowerIdx]
+    if (endTower.length === 0) {
+      return true
+    }
+    if (startTower[startTower.length - 1] < endTower[endTower.length - 1]) {
+      return true
+    }
 
-  move(startTowerIdx, endTowerIdx) {}
+    if ()
 
-  isWon() {}
+  }
+
+  move(startTowerIdx, endTowerIdx) { }
+
+  isWon() { }
 
   // the below methods are complete and do not need to be modified
   print() {
