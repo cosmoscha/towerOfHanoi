@@ -6,18 +6,46 @@ class HanoiGame {
   isValidMove(startTowerIdx, endTowerIdx) {
     let startTower = this.towers[startTowerIdx]
     let endTower = this.towers[endTowerIdx]
-    if (endTower.length === 0) {
-      return true
-    }
-    if (startTower[startTower.length - 1] < endTower[endTower.length - 1]) {
-      return true
-    }
 
-    if ()
-
+    if ((endTower === undefined) ||
+      (startTower === undefined) ||
+      (startTower.length === 0)) {
+      return false
+    } else if (endTower.length === 0) {
+      return true
+    } else {
+      return (startTower[startTower.length - 1] < endTower[endTower.length - 1])
+    }
   }
 
-  move(startTowerIdx, endTowerIdx) { }
+  move(startTowerIdx, endTowerIdx) {
+    if (this.isValidMove(startTowerIdx, endTowerIdx)) {
+      let endTower = this.towers[endTowerIdx]
+      let startTower = this.towers[startTowerIdx]
+
+      endTower.push(startTower.pop())
+      return true;
+    } else {
+      return false;
+    }
+    // if (!this.isValidMove(startTowerIdx, endTowerIdx)) {
+    //   return false
+    // }
+  }
+
+  move(startTowerIdx, endTowerIdx) {
+    if (this.isValidMove(startTowerIdx, endTowerIdx)) {
+      let endTower = this.towers[endTowerIdx];
+      let startTower = this.towers[startTowerIdx];
+
+      endTower.push(startTower.pop());
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
 
   isWon() { }
 
